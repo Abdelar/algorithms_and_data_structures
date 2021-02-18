@@ -22,6 +22,7 @@ function readLine() {
 	return inputString[currentLine++];
 }
 
+// Complete the function below
 function freqQuery(queries) {
 	const repeated = {};
 	const frequency = {};
