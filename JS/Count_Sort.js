@@ -22,5 +22,3 @@ function countSort(arr) {
 
 	return arr;
 }
-
-console.log(countSort([1, 2, 4, 3, 100, 50]));
