@@ -32,7 +32,8 @@ function abbreviation(a, b) {
 	return rec(m, n) ? 'YES' : 'NO';
 
 	function rec(i, j, memo = {}) {
-		if (encode(i, j) in memo) return memo[encode(i, j)];
+		const hash = encode(i, j);
+		if (hash in memo) return memo[hash];
 		// initialisation
 		if (i && !j) {
 			return a.slice(0, i).isLowerCase() ? true : false;
@@ -45,13 +46,13 @@ function abbreviation(a, b) {
 		const y = b[j - 1];
 
 		if (x.isUpperCase()) {
-			memo[encode(i, j)] = x.isEqual(y) ? rec(i - 1, j - 1, memo) : false;
+			memo[hash] = x.isEqual(y) ? rec(i - 1, j - 1, memo) : false;
 		} else {
-			memo[encode(i, j)] = x.isEqual(y)
+			memo[hash] = x.isEqual(y)
 				? rec(i - 1, j, memo) || rec(i - 1, j - 1, memo)
 				: rec(i - 1, j, memo);
 		}
-		return memo[encode(i, j)];
+		return memo[hash];
 	}
 }
 
