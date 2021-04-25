@@ -34,7 +34,7 @@ function abbreviation(a, b) {
 	function rec(i, j, memo = {}) {
 		const hash = encode(i, j);
 		if (hash in memo) return memo[hash];
-		// initialisation
+		// initialization
 		if (i && !j) {
 			return a.slice(0, i).isLowerCase() ? true : false;
 		}
